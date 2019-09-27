@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Copyright>Henk Kin</Copyright>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Authors>Henk Kin</Authors>
+    <PackageProjectUrl>https://github.com/HenkKin/Identifiers</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/HenkKin/Identifiers.git</RepositoryUrl>
+  </PropertyGroup>
+
+</Project>
