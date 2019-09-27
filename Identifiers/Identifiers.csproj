@@ -7,6 +7,8 @@
     <Authors>Henk Kin</Authors>
     <PackageProjectUrl>https://github.com/HenkKin/Identifiers</PackageProjectUrl>
     <RepositoryUrl>https://github.com/HenkKin/Identifiers.git</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageTags>Identifier id int guid valueobject</PackageTags>
   </PropertyGroup>
 
 </Project>
