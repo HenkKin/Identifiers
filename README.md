@@ -37,7 +37,7 @@ To use it:
 ```csharp
 using Identifiers;
 
-public class Order
+public class YourEntity
 {
     public Identifier Id { get; set; }
     ...
