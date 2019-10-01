@@ -2,15 +2,7 @@ version: 1.0.{build}
 image:
 - Visual Studio 2019
 
-build:
-  verbosity: minimal
-  
-dotnet_csproj:
-  patch: false
-  file: '**\*.csproj'
-  
-test:
-  # only assemblies to test
-  assemblies:
-    only:
-      - '**\*.tests.dll'
+build_script:
+- cmd: dotnet build
+test_script:
+- cmd: dotnet test
