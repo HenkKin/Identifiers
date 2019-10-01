@@ -3,6 +3,7 @@ Identifiers
 [![Build Status](https://ci.appveyor.com/api/projects/status/github/HenkKin/Identifiers?branch=master&svg=true)](https://ci.appveyor.com/project/HenkKin/Identifiers) 
 [![NuGet](https://img.shields.io/nuget/dt/Identifiers.svg)](https://www.nuget.org/packages/Identifiers) 
 [![NuGet](https://img.shields.io/nuget/vpre/Identifiers.svg)](https://www.nuget.org/packages/Identifiers)
+[![BCH compliance](https://bettercodehub.com/edge/badge/HenkKin/Identifiers?branch=master)](https://bettercodehub.com/)
 
 ### Summary
 
