@@ -6,8 +6,8 @@ build:
   verbosity: minimal
   
 dotnet_csproj:
-  patch: true
-  file: '**\*.csproj;**\*.props;**\*.fsproj;**\*.xml'
+  patch: false
+  file: '**\*.csproj'
   
 test:
   # only assemblies to test
