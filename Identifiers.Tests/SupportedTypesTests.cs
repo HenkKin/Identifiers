@@ -37,12 +37,14 @@ namespace Identifiers.Tests
         public void _IsSupportedValueTypeWhenTypeOfValueIsSupported_ItShouldReturnTrue()
         {
             // Act
+            var isSupportedNull = SupportedTypes.IsSupportedValueType(null);
             var isSupportedInt = SupportedTypes.IsSupportedValueType(10);
             var isSupportedShort = SupportedTypes.IsSupportedValueType((short)10);
             var isSupportedLong = SupportedTypes.IsSupportedValueType(10L);
             var isSupportedGuid = SupportedTypes.IsSupportedValueType(Guid.Empty);
 
             // Assert
+            Assert.True(isSupportedNull);
             Assert.True(isSupportedInt);
             Assert.True(isSupportedShort);
             Assert.True(isSupportedLong);
@@ -53,14 +55,12 @@ namespace Identifiers.Tests
         public void IsSupportedValueType_WhenTypeOfValueIsNotSupportedDecimal_ItShouldReturnFalse()
         {
             // Act
-            var isSupportedNull = SupportedTypes.IsSupportedValueType(null);
             var isSupportedString = SupportedTypes.IsSupportedValueType("string");
             var isSupportedDouble = SupportedTypes.IsSupportedValueType(10d);
             var isSupportedDecimal = SupportedTypes.IsSupportedValueType(10m);
             var isSupportedDateTime = SupportedTypes.IsSupportedValueType(new DateTime(2019, 10, 1));
 
             // Assert
-            Assert.False(isSupportedNull);
             Assert.False(isSupportedString);
             Assert.False(isSupportedDouble);
             Assert.False(isSupportedDecimal);

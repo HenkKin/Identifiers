@@ -11,45 +11,24 @@ namespace Identifiers.TypeConverters
                 throw CreateNotSupportedException(typeof(TDatabaseClrType).FullName);
             }
 
-            if (value == null)
-            {
-                return new Identifier();
-            }
-
             if (!SupportedTypes.IsSupportedValueType(value))
             {
                 throw CreateNotSupportedException(value.GetType().FullName);
             }
 
+            if (value == null)
+            {
+                return new Identifier();
+            }
+
             try
             {
-                if (typeof(TDatabaseClrType) == typeof(int))
-                {
-                    return new Identifier(Convert.ToInt32(value));
-                }
-
-                if (typeof(TDatabaseClrType) == typeof(long))
-                {
-                    return new Identifier(Convert.ToInt64(value));
-                }
-
-                if (typeof(TDatabaseClrType) == typeof(Guid))
-                {
-                    return new Identifier(Convert.ChangeType(value, typeof(Guid)));
-                }
-
-                if (typeof(TDatabaseClrType) == typeof(short))
-                {
-                    return new Identifier(Convert.ToInt16(value));
-                }
+               return new Identifier(Convert.ChangeType(value, typeof(TDatabaseClrType)));
             }
             catch (Exception)
             {
-                // throw CreateNotSupportedException(value.GetType().FullName);
-                // when error occurred, it should go to next line
+                throw CreateNotSupportedException(value.GetType().FullName);
             }
-
-            throw CreateNotSupportedException(value.GetType().FullName);
         }
 
         public static TDatabaseClrType FromIdentifier<TDatabaseClrType>(Identifier identifier)

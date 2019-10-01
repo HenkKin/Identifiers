@@ -34,7 +34,12 @@ namespace Identifiers
 
         public static bool IsSupportedValueType(object value)
         {
-            var type = value?.GetType();
+            if (value == null)
+            {
+                return true;
+            }
+
+            var type = value.GetType();
             return List.Contains(type);
         }
     }

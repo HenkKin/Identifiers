@@ -2,6 +2,10 @@ version: 1.0.{build}
 build:
   verbosity: minimal
   
+dotnet_csproj:
+  patch: true
+  file: '**\*.csproj;**\*.props;**\*.fsproj;**\*.xml'
+  
 test:
   # only assemblies to test
   assemblies:
