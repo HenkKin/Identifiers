@@ -5,12 +5,18 @@ namespace Identifiers
 {
     public struct Identifier : IComparable<Identifier>, IEquatable<Identifier>
     {
+        private static readonly object NullObject = new object();
+
         private readonly object _value;
 
-        public static Identifier Empty => new Identifier();
+        public static Identifier Empty => new Identifier(null);
 
         public Identifier(object value = null)
         {
+            if (value != null && !SupportedTypes.IsSupported(value))
+            {
+                throw new NotSupportedException($"Type {value.GetType().FullName} is not supported by Identifiers");
+            }
             _value = value;
         }
 
@@ -26,7 +32,7 @@ namespace Identifiers
 
         public static bool operator >(Identifier a, Identifier b)
         {
-            return !(a < b);
+            return Comparer.Default.Compare(a._value, b._value) > 0;
         }
 
         public static bool operator <=(Identifier a, Identifier b)
@@ -41,7 +47,7 @@ namespace Identifiers
 
         public static bool operator ==(Identifier a, Identifier b)
         {
-            return a.Equals((object) b);
+            return a.Equals(b);
         }
 
         public static bool operator !=(Identifier a, Identifier b)
@@ -76,7 +82,7 @@ namespace Identifiers
 
         public override int GetHashCode()
         {
-            return _value != null ? _value.GetHashCode() : base.GetHashCode();
+            return _value != null ? _value.GetHashCode() : NullObject.GetHashCode();
         }
 
         public override string ToString()
