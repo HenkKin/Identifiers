@@ -91,5 +91,86 @@ namespace Identifiers.Tests.TypeConverters
             // Assert
             Assert.Throws<NotSupportedException>(Act);
         }
+
+        [Fact]
+        public void FromIdentifier_WhenTypeIsNotOfSupportedTypes_ItShouldThrowNotSupportedException()
+        {
+            // Arrange
+            Identifier value = new Identifier();
+
+            // Act
+            void Act() => IdentifierTypeConverter.FromIdentifier<string>(value);
+
+            // Assert
+            Assert.Throws<NotSupportedException>(Act);
+        }
+
+        [Fact]
+        public void FromIdentifier_WhenIdentifierHasDefaultValue_ItShouldReturnDefaultValue()
+        {
+            // Arrange
+            Identifier value = new Identifier();
+
+            // Act
+            var resultInt = IdentifierTypeConverter.FromIdentifier<int>(value);
+            var resultShort = IdentifierTypeConverter.FromIdentifier<short>(value);
+            var resultLong = IdentifierTypeConverter.FromIdentifier<long>(value);
+            var resultGuid = IdentifierTypeConverter.FromIdentifier<Guid>(value);
+
+            // Assert
+            Assert.Equal(0, resultInt);
+            Assert.Equal(0, resultShort);
+            Assert.Equal(0, resultLong);
+            Assert.Equal(Guid.Empty, resultGuid);
+        }
+
+        [Fact]
+        public void FromIdentifier_WhenIdentifierHasValue_ItShouldReturnValue()
+        {
+            // Arrange
+            Identifier valueInt = new Identifier(10);
+            Identifier valueLong = new Identifier(10L);
+            Identifier valueShort = new Identifier((short)10);
+            Identifier valueGuid = new Identifier(Guid.Empty);
+
+            // Act
+            var resultInt = IdentifierTypeConverter.FromIdentifier<int>(valueInt);
+            var resultShort = IdentifierTypeConverter.FromIdentifier<short>(valueShort);
+            var resultLong = IdentifierTypeConverter.FromIdentifier<long>(valueLong);
+            var resultGuid = IdentifierTypeConverter.FromIdentifier<Guid>(valueGuid);
+
+            // Assert
+            Assert.Equal(10, resultInt);
+            Assert.Equal(10, resultShort);
+            Assert.Equal(10, resultLong);
+            Assert.Equal(Guid.Empty, resultGuid);
+        }
+
+        [Fact]
+        public void ToIdentifier_WhenValueIsNotOfSupportedTypes_ItShouldThrowNotSupportedException()
+        {
+            // Arrange
+            string value = "value";
+
+            // Act
+            void Act() => IdentifierTypeConverter.ToIdentifier<int>(value);
+
+            // Assert
+            Assert.Throws<NotSupportedException>(Act);
+        }
+
+
+        [Fact]
+        public void ToIdentifier_WhenValueIsIsGuidAndRequestedTypeIdInt_ItShouldThrowNotSupportedException()
+        {
+            // Arrange
+            var value = Guid.Empty;
+
+            // Act
+            void Act() => IdentifierTypeConverter.ToIdentifier<int>(value);
+
+            // Assert
+            Assert.Throws<NotSupportedException>(Act);
+        }
     }
 }

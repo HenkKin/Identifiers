@@ -10,10 +10,10 @@ namespace Identifiers.Tests
         [InlineData(typeof(short))]
         [InlineData(typeof(long))]
         [InlineData(typeof(Guid))]
-        public void WhenTypeIsSupported_ItShouldReturnTrue(Type type)
+        public void IsSupportedType_WhenTypeIsSupported_ItShouldReturnTrue(Type type)
         {
             // Act
-            var isSupported = SupportedTypes.IsSupported(type);
+            var isSupported = SupportedTypes.IsSupportedType(type);
 
             // Assert
             Assert.True(isSupported);
@@ -24,23 +24,23 @@ namespace Identifiers.Tests
         [InlineData(typeof(decimal))]
         [InlineData(typeof(DateTime))]
         [InlineData(typeof(double))]
-        public void WhenTypeIsNotSupported_ItShouldReturnTrue(Type type)
+        public void IsSupportedType_WhenTypeIsNotSupported_ItShouldReturnTrue(Type type)
         {
             // Act
-            var isSupported = SupportedTypes.IsSupported(type);
+            var isSupported = SupportedTypes.IsSupportedType(type);
 
             // Assert
             Assert.False(isSupported);
         }
 
         [Fact]
-        public void WhenTypeOfValueIsSupported_ItShouldReturnTrue()
+        public void _IsSupportedValueTypeWhenTypeOfValueIsSupported_ItShouldReturnTrue()
         {
             // Act
-            var isSupportedInt = SupportedTypes.IsSupported(10);
-            var isSupportedShort = SupportedTypes.IsSupported((short)10);
-            var isSupportedLong = SupportedTypes.IsSupported(10L);
-            var isSupportedGuid = SupportedTypes.IsSupported(Guid.Empty);
+            var isSupportedInt = SupportedTypes.IsSupportedValueType(10);
+            var isSupportedShort = SupportedTypes.IsSupportedValueType((short)10);
+            var isSupportedLong = SupportedTypes.IsSupportedValueType(10L);
+            var isSupportedGuid = SupportedTypes.IsSupportedValueType(Guid.Empty);
 
             // Assert
             Assert.True(isSupportedInt);
@@ -50,15 +50,17 @@ namespace Identifiers.Tests
         }
 
         [Fact]
-        public void WhenTypeOfValueIsNotSupportedDecimal_ItShouldReturnFalse()
+        public void IsSupportedValueType_WhenTypeOfValueIsNotSupportedDecimal_ItShouldReturnFalse()
         {
             // Act
-            var isSupportedString = SupportedTypes.IsSupported("string");
-            var isSupportedDouble = SupportedTypes.IsSupported(10d);
-            var isSupportedDecimal = SupportedTypes.IsSupported(10m);
-            var isSupportedDateTime = SupportedTypes.IsSupported(new DateTime(2019, 10, 1));
+            var isSupportedNull = SupportedTypes.IsSupportedValueType(null);
+            var isSupportedString = SupportedTypes.IsSupportedValueType("string");
+            var isSupportedDouble = SupportedTypes.IsSupportedValueType(10d);
+            var isSupportedDecimal = SupportedTypes.IsSupportedValueType(10m);
+            var isSupportedDateTime = SupportedTypes.IsSupportedValueType(new DateTime(2019, 10, 1));
 
             // Assert
+            Assert.False(isSupportedNull);
             Assert.False(isSupportedString);
             Assert.False(isSupportedDouble);
             Assert.False(isSupportedDecimal);
@@ -66,13 +68,13 @@ namespace Identifiers.Tests
         }
 
         [Fact]
-        public void WhenGenericTypeIsSupported_ItShouldReturnTrue()
+        public void IsSupportedType_WhenGenericTypeIsSupported_ItShouldReturnTrue()
         {
             // Act
-            var isSupportedInt = SupportedTypes.IsSupported<int>();
-            var isSupportedShort = SupportedTypes.IsSupported<short>();
-            var isSupportedLong = SupportedTypes.IsSupported<long>();
-            var isSupportedGuid = SupportedTypes.IsSupported<Guid>();
+            var isSupportedInt = SupportedTypes.IsSupportedType<int>();
+            var isSupportedShort = SupportedTypes.IsSupportedType<short>();
+            var isSupportedLong = SupportedTypes.IsSupportedType<long>();
+            var isSupportedGuid = SupportedTypes.IsSupportedType<Guid>();
 
             // Assert
             Assert.True(isSupportedInt);
@@ -82,13 +84,13 @@ namespace Identifiers.Tests
         }
 
         [Fact]
-        public void WhenGenericTypeIsNotSupported_ItShouldReturnFalse()
+        public void IsSupportedType_WhenGenericTypeIsNotSupported_ItShouldReturnFalse()
         {
             // Act
-            var isSupportedString = SupportedTypes.IsSupported<string>();
-            var isSupportedDecimal = SupportedTypes.IsSupported<decimal>();
-            var isSupportedDateTime = SupportedTypes.IsSupported<DateTime>();
-            var isSupportedDouble = SupportedTypes.IsSupported<double>();
+            var isSupportedString = SupportedTypes.IsSupportedType<string>();
+            var isSupportedDecimal = SupportedTypes.IsSupportedType<decimal>();
+            var isSupportedDateTime = SupportedTypes.IsSupportedType<DateTime>();
+            var isSupportedDouble = SupportedTypes.IsSupportedType<double>();
 
             // Assert
             Assert.False(isSupportedString);

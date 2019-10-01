@@ -6,7 +6,7 @@ namespace Identifiers.TypeConverters
     {
         public static Identifier ToIdentifier<TDatabaseClrType>(object value)
         {
-            if (!SupportedTypes.IsSupported<TDatabaseClrType>())
+            if (!SupportedTypes.IsSupportedType<TDatabaseClrType>())
             {
                 throw CreateNotSupportedException(typeof(TDatabaseClrType).FullName);
             }
@@ -16,7 +16,7 @@ namespace Identifiers.TypeConverters
                 return new Identifier();
             }
 
-            if (!SupportedTypes.IsSupported(value))
+            if (!SupportedTypes.IsSupportedValueType(value))
             {
                 throw CreateNotSupportedException(value.GetType().FullName);
             }
@@ -45,20 +45,16 @@ namespace Identifiers.TypeConverters
             }
             catch (Exception)
             {
-                throw CreateNotSupportedException(value.GetType().FullName);
+                // throw CreateNotSupportedException(value.GetType().FullName);
+                // when error occurred, it should go to next line
             }
 
             throw CreateNotSupportedException(value.GetType().FullName);
         }
 
-        private static Exception CreateNotSupportedException(string typename)
-        {
-            return new NotSupportedException($"Type {typename} is not supported by Identifiers");
-        }
-
         public static TDatabaseClrType FromIdentifier<TDatabaseClrType>(Identifier identifier)
         {
-            if (!SupportedTypes.IsSupported<TDatabaseClrType>())
+            if (!SupportedTypes.IsSupportedType<TDatabaseClrType>())
             {
                 throw CreateNotSupportedException(typeof(TDatabaseClrType).FullName);
             }
@@ -71,6 +67,11 @@ namespace Identifiers.TypeConverters
             }
 
             return (TDatabaseClrType) Convert.ChangeType(value, typeof(TDatabaseClrType));
+        }
+
+        private static Exception CreateNotSupportedException(string typename)
+        {
+            return new NotSupportedException($"Type {typename} is not supported by Identifiers");
         }
     }
 }

@@ -21,18 +21,18 @@ namespace Identifiers
             List.Add(Short);
         }
 
-        public static bool IsSupported<T>()
+        public static bool IsSupportedType<T>()
         {
             var type = typeof(T);
             return List.Contains(type);
         }
 
-        public static bool IsSupported(Type type)
+        public static bool IsSupportedType(Type type)
         {
             return List.Contains(type);
         }
 
-        public static bool IsSupported(object value)
+        public static bool IsSupportedValueType(object value)
         {
             var type = value?.GetType();
             return List.Contains(type);
