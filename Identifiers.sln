@@ -5,7 +5,14 @@ VisualStudioVersion = 16.0.29324.140
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identifiers", "Identifiers\Identifiers.csproj", "{F963F6F1-EB29-4150-8EA1-3985C6CA7E66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identifiers.Tests", "Identifiers.Tests\Identifiers.Tests.csproj", "{64FA70B3-FF44-494F-B14E-C05B820D0BD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identifiers.Tests", "Identifiers.Tests\Identifiers.Tests.csproj", "{64FA70B3-FF44-494F-B14E-C05B820D0BD1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A0571F97-C94C-4D80-88A5-29F5C008D91B}"
+	ProjectSection(SolutionItems) = preProject
+		.bettercodehub.yml = .bettercodehub.yml
+		appveyor.yml = appveyor.yml
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
