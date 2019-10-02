@@ -13,10 +13,6 @@ namespace Identifiers
 
         public Identifier(object value = null)
         {
-            if (value != null && !SupportedTypes.IsSupportedValueType(value))
-            {
-                throw new NotSupportedException($"Type {value.GetType().FullName} is not supported by Identifiers");
-            }
             _value = value;
         }
 

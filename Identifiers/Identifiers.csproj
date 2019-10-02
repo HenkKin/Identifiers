@@ -3,12 +3,15 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Copyright>Henk Kin</Copyright>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Henk Kin</Authors>
     <PackageProjectUrl>https://github.com/HenkKin/Identifiers</PackageProjectUrl>
     <RepositoryUrl>https://github.com/HenkKin/Identifiers.git</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
     <PackageTags>Identifier id int guid valueobject</PackageTags>
+    <Version>1.0.1</Version>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Description>Identifiers, valueobject pattern for having custom type for Identifiers</Description>
   </PropertyGroup>
 
 </Project>

@@ -16,20 +16,7 @@ namespace Identifiers.Tests
         }
 
         [Fact]
-        public void Ctor_WhenIdentifierIsConstructedWithNotAllowedType_ItThrowsException()
-        {
-            // Arrange
-            string value = "";
-
-            // Act
-            void Act() => new Identifier(value);
-
-            // Assert
-            Assert.Throws<NotSupportedException>(Act);
-        }
-
-        [Fact]
-        public void Ctor_WhenIdentifierIsConstructedWithAllowedType_ItCreatesaAnIdentifier()
+        public void Ctor_WhenIdentifierIsConstructed_ItCreatesaAnIdentifier()
         {
             // Arrange
             int value = 10;
