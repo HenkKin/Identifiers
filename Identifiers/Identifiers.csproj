@@ -9,8 +9,8 @@
     <RepositoryUrl>https://github.com/HenkKin/Identifiers.git</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
     <PackageTags>Identifier id int guid valueobject</PackageTags>
-    <Version>1.0.1</Version>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Version>1.0.3</Version>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Description>Identifiers, valueobject pattern for having custom type for Identifiers</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>

@@ -53,3 +53,7 @@ If you're using ASP.NET Core and you want to use this Identifier type in your mo
 
 If you're using EntityFrameworkCore.SqlServer and you want to use this Identifier type in your entities, then you can use [Identifiers.EntityFrameworkCore.SqlServer](https://github.com/HenkKin/Identifiers.EntityFrameworkCore.SqlServer/) package which includes a `DbContextOptionsBuilder.UseIdentifiers<[InternalClrType:short|int|long|Guid]>()` extension method, allowing you to register all needed IValueConverterSelectors and IMigrationsAnnotationProviders. 
 It also includes a `PropertyBuilder<Identifier>.IdentifierValueGeneratedOnAdd()` extension method, allowing you to register all needed configuration to use SqlServerValueGenerationStrategy.IdentityColumn. 
+
+### Newtonsoft.Json
+
+If you're using Newtonsoft.Json and you are not using [Identifiers.AspNetCore](https://github.com/HenkKin/Identifiers.AspNetCore/) then the [Identifiers.Extensions.Newtonsoft.Json](https://github.com/HenkKin/Identifiers.Extensions.Newtonsoft.Json/) package gives you JsonConverters to instruct Newtonsoft.Json how to serialize and deserialize the Identifier type.
