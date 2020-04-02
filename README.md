@@ -17,7 +17,6 @@ https://andrewlock.net/using-strongly-typed-entity-ids-to-avoid-primitive-obsess
 
 This library is Cross-platform, supporting `netstandard2.1`.
 
-
 ### Installing Identifiers
 
 You should install [Identifiers with NuGet](https://www.nuget.org/packages/Identifiers):
@@ -57,3 +56,20 @@ It also includes a `PropertyBuilder<Identifier>.IdentifierValueGeneratedOnAdd()`
 ### Newtonsoft.Json
 
 If you're using Newtonsoft.Json and you are not using [Identifiers.AspNetCore](https://github.com/HenkKin/Identifiers.AspNetCore/) then the [Identifiers.Extensions.Newtonsoft.Json](https://github.com/HenkKin/Identifiers.Extensions.Newtonsoft.Json/) package gives you JsonConverters to instruct Newtonsoft.Json how to serialize and deserialize the Identifier type.
+
+### Debugging
+
+If you want to debug the source code, thats possible. [SourceLink](https://github.com/dotnet/sourcelink) is enabled. To use it, you  have to change Visual Studio Debugging options:
+
+Debug => Options => Debugging => General
+
+Set the following settings:
+
+[&nbsp;&nbsp;] Enable Just My Code
+
+[X] Enable source server support
+
+[X] Enable source link support
+
+
+Now you can use 'step into' (F11).

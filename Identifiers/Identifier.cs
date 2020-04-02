@@ -5,8 +5,6 @@ namespace Identifiers
 {
     public struct Identifier : IComparable<Identifier>, IEquatable<Identifier>
     {
-        private static readonly object NullObject = new object();
-
         private readonly object _value;
 
         public static Identifier Empty => new Identifier(null);
@@ -76,10 +74,7 @@ namespace Identifiers
             return obj is Identifier other && Equals(other);
         }
 
-        public override int GetHashCode()
-        {
-            return _value != null ? _value.GetHashCode() : NullObject.GetHashCode();
-        }
+        public override int GetHashCode() => _value != null ? _value.GetHashCode() : HashCode.Combine(_value);
 
         public override string ToString()
         {

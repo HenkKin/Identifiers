@@ -281,6 +281,21 @@ namespace Identifiers.Tests
             Assert.Equal(intHashCode, hashCode);
         }
 
+        [Fact]
+        public void GetHashCode_WhenCalledOnDefaultIdentifier_ItReturnsHashCodeOfNull()
+        {
+            // Arrange
+            var nullHashCode = HashCode.Combine((object)null);
+
+            var identifier = new Identifier(null);
+
+            // Act
+            var hashCode = identifier.GetHashCode();
+
+            // Assert
+            Assert.Equal(nullHashCode, hashCode);
+        }
+
 
         [Fact]
         public void ToString_WhenCalledOnDefaultIdentifier_ItReturnsEmptyString()

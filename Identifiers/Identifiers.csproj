@@ -1,18 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <Copyright>Henk Kin</Copyright>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Henk Kin</Authors>
+    <Company>Henk Kin</Company>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/HenkKin/Identifiers</PackageProjectUrl>
     <RepositoryUrl>https://github.com/HenkKin/Identifiers.git</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
     <PackageTags>Identifier id int guid valueobject</PackageTags>
-    <Version>1.0.3</Version>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Description>Identifiers, valueobject pattern for having custom type for Identifiers</Description>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Copyright>Henk Kin</Copyright>
+    <Version>1.0.6</Version>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
-
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
 </Project>
