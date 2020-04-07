@@ -12,7 +12,7 @@
     <PackageTags>Identifier id int guid valueobject</PackageTags>
     <Description>Identifiers, valueobject pattern for having custom type for Identifiers</Description>
     <Copyright>Henk Kin</Copyright>
-    <Version>1.0.6</Version>
+    <Version>1.0.7</Version>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>
